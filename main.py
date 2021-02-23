@@ -56,13 +56,13 @@ class I_Studio(object):
         if not result.json().get('access_token'):
             logger.info('登录失败，错误信息：%s' % result.json().get('msg'))
         else:
-            logger.info('登录成功，响应token结果：%s' % result.json().get('access_token'))
+            logger.info('登录成功!!!')
             self._access_token = result.json().get('access_token')
 
             # 生成抽奖页面链接
-            url = 'https://rpa.i-search.com.cn/store/attendance?token=' + self._access_token + '&lang=zh_CN&machineCode=' + \
-                  self._deviceCode + '&channel_no=DevStand&_=' + str(round(time.time() * 1000))
-            logger.info('生成签到抽奖页面链接：%s' % url)
+            # url = 'https://rpa.i-search.com.cn/store/attendance?token=' + self._access_token + '&lang=zh_CN&machineCode=' + \
+            #      self._deviceCode + '&channel_no=DevStand&_=' + str(round(time.time() * 1000))
+            # logger.info('生成签到抽奖页面链接：%s' % url)
 
             # 第二步，获取用户信息结果
             url = 'https://account.i-search.com.cn/v1/studio/expiration?token=' + self._access_token + '&lang=zh_CN'
